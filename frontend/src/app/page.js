@@ -15,7 +15,7 @@ import {
 import { ArrowRight, BarChart3, Users, FileCheck, Shield, Compass, Video } from "lucide-react";
 import { useState } from 'react';
 
-export default () => {
+const Component= () => {
   // --- STATE FOR MODAL VISIBILITY AND MODAL FORM DATA ---
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [clickedCardName, setClickedCardName] = useState('');
@@ -289,3 +289,4 @@ export default () => {
     </>
   );
 }
+export default Component;
