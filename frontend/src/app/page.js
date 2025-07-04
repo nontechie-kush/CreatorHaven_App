@@ -1,5 +1,5 @@
 // src/app/page.js
-"use client";
+'use client';
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -10,29 +10,29 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger, 
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { ArrowRight, BarChart3, Users, FileCheck, Shield, Compass, Video } from "lucide-react";
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-const Index = () => {
+export default () => {
   // --- STATE FOR MODAL VISIBILITY AND MODAL FORM DATA ---
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [clickedCardName, setClickedCardName] = useState(''); 
-  const [modalFormData, setModalFormData] = useState({ 
-    handle: '', 
-    email: '',
-    phone: ''
-  });
-  const [modalSubmissionStatus, setModalSubmissionStatus] = useState(''); 
-
-  // --- STATE FOR BOTTOM FORM DATA ---
-  const [bottomFormData, setBottomFormData] = useState({ 
+  const [clickedCardName, setClickedCardName] = useState('');
+  const [modalFormData, setModalFormData] = useState({
     handle: '',
     email: '',
     phone: ''
   });
-  const [bottomSubmissionStatus, setBottomSubmissionStatus] = useState(''); 
+  const [modalSubmissionStatus, setModalSubmissionStatus] = useState('');
+
+  // --- STATE FOR BOTTOM FORM DATA ---
+  const [bottomFormData, setBottomFormData] = useState({
+    handle: '',
+    email: '',
+    phone: ''
+  });
+  const [bottomSubmissionStatus, setBottomSubmissionStatus] = useState('');
 
 
   // --- Handlers for Modal Form Inputs ---
@@ -51,30 +51,30 @@ const Index = () => {
     setFormStatus('Submitting...');
     try {
       // CRITICAL: Ensure this uses the environment variable, NOT localhost:5000
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/submit-form`, { 
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/submit-form`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          handle: formDataToSubmit.handle, 
-          email: formDataToSubmit.email || null, 
-          phone: formDataToSubmit.phone || null, 
-          card_name: context.cardName || null, 
-          form_location: context.location 
+        body: JSON.stringify({
+          handle: formDataToSubmit.handle,
+          email: formDataToSubmit.email || null,
+          phone: formDataToSubmit.phone || null,
+          card_name: context.cardName || null,
+          form_location: context.location
         }),
       });
 
-      const data = await response.json(); 
+      const data = await response.json();
 
       if (data.success) {
         setFormStatus('Thank you! Your request has been submitted successfully.');
-        clearFormData(); 
+        clearFormData();
         // --- GA Event: Successful Form Submission ---
         if (typeof window !== 'undefined' && window.gtag) {
           window.gtag('event', 'form_submission', {
             event_category: 'engagement',
             event_label: `early_access_${context.location}_success`,
-            form_context: context.cardName || 'general', 
-            value: 1 
+            form_context: context.cardName || 'general',
+            value: 1
           });
         }
       } else {
@@ -106,30 +106,29 @@ const Index = () => {
 
   // --- MODAL FORM SUBMIT HANDLER ---
   const handleModalSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     await commonSubmitLogic(
-      modalFormData, 
-      setModalSubmissionStatus, 
-      () => setModalFormData({ handle: '', email: '', phone: '' }), 
+      modalFormData,
+      setModalSubmissionStatus,
+      () => setModalFormData({ handle: '', email: '', phone: '' }),
       { cardName: clickedCardName, location: 'modal' }
     );
   };
 
   // --- BOTTOM FORM SUBMIT HANDLER ---
-  const handleBottomSubmit = async (e) => {
-    e.preventDefault(); 
-    await commonSubmitLogic(
-      bottomFormData, 
-      setBottomSubmissionStatus, 
-      () => setBottomFormData({ handle: '', email: '', phone: '' }), 
-      { cardName: null, location: 'bottom' } 
-    );
-  };
+  // const handleBottomSubmit = async (e) => {
+  //   e.preventDefault();
+  //   await commonSubmitLogic(
+  //     bottomFormData,
+  //     setBottomSubmissionStatus,
+  //     () => setBottomFormData({ handle: '', email: '', phone: '' }),
+  //     { cardName: null, location: 'bottom' }
+  //   );
+  // };
 
 
   return (
-    // --- WRAP BOTH TOP-LEVEL ELEMENTS IN A REACT FRAGMENT ---
-    <> 
+    <>
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden">
@@ -155,25 +154,6 @@ const Index = () => {
                 Creator fatigue is real. The grind is relentless. <strong className="text-purple-600">CreatorHaven</strong> is your dedicated partner, built to transform that struggle into sustainable success. Get <strong className="text-blue-600">AI-powered insights</strong>, expert <strong className="text-indigo-600">brand deal feedback</strong>, and access a <strong className="text-purple-600">supportive mentorship community</strong>. You don&apos;t have to do this alone.
               </p>
 
-              {/* Main CTA Button - NOW USES DIALOGTRIGGER */}
-              <DialogTrigger asChild> {/* asChild means the button below will trigger the dialog */}
-                <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                  onClick={() => { // Still track GA and set card name
-                    if (typeof window !== 'undefined' && window.gtag) {
-                      window.gtag('event', 'cta_button_click', {
-                        event_category: 'engagement',
-                        event_label: 'unlock_potential_hero_button', // Label specifically for hero CTA
-                      });
-                    }
-                    setClickedCardName('main_hero_cta'); // Set a name for the main CTA
-                    setIsModalOpen(true); 
-                    setModalSubmissionStatus('');
-                    setModalFormData({ handle: '', email: '', phone: '' });
-                  }}>
-                  Unlock Your Potential - Free Access
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </DialogTrigger>
 
               <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-gray-500">
                 <div className="flex items-center gap-2">
@@ -205,205 +185,75 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Feature Cards - ONCLICK OPENS MODAL */}
-              <DialogTrigger asChild> 
-                <Card 
-                  className="p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200 cursor-pointer"
-                  onClick={() => { // Still use onClick here to ensure GA is tracked on the card
-                    if (typeof window !== 'undefined' && window.gtag) {
-                      window.gtag('event', 'feature_card_click', {
-                        event_category: 'feature_interest',
-                        event_label: 'ai_powered_growth_insights_card',
-                        value: 1,
-                      });
-                    }
-                    setClickedCardName('ai_powered_growth_insights_card'); // Set name when card clicked
-                    setIsModalOpen(true); 
-                    setModalSubmissionStatus('');
-                    setModalFormData({ handle: '', email: '', phone: '' }); // Clear form
-                  }}
-                  role="button" 
-                  tabIndex="0" 
-                >
-                  <div className="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                    <BarChart3 className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">AI Powered Growth Insights</h3>
-                  <p className="text-gray-600">
-                    <strong className="text-purple-600">Decode</strong> what makes content viral with AI analysis of thousands of successful creator videos
-                  </p>
-                  <a href="#" className="mt-4 inline-flex items-center text-purple-600 hover:text-purple-800 font-semibold text-sm">
-                      Show my progress <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
-                </Card>
-              </DialogTrigger>
+            {/* Feature Cards */}
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+              {/* Direct Video Analysis */}
+              <Card className="p-6 flex flex-col gap-4 bg-white/90 backdrop-blur rounded-2xl shadow-lg">
+                <div className="flex items-center gap-3">
+                  <Video className="h-7 w-7 text-purple-600" />
+                  <h3 className="text-xl font-semibold text-gray-900">Direct Video Analysis</h3>
+                </div>
+                <p className="text-gray-600">
+                  Upload or link a clip and get frame‑by‑frame feedback on hooks, pacing, and narrative impact.
+                </p>
+              </Card>
 
-              {/* Feature 2 */}
-              <DialogTrigger asChild>
-                <Card 
-                  className="p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 cursor-pointer"
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && window.gtag) {
-                      window.gtag('event', 'feature_card_click', {
-                        event_category: 'feature_interest',
-                        event_label: 'decode_what_goes_viral_card',
-                        value: 1,
-                      });
-                    }
-                    setClickedCardName('decode_what_goes_viral_card');
-                    setIsModalOpen(true); 
-                    setModalSubmissionStatus('');
-                    setModalFormData({ handle: '', email: '', phone: '' });
-                  }}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <div className="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                    <Video className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Decode What Goes Viral</h3>
-                  <p className="text-gray-600">
-                    <strong className="text-blue-600">Stop guessing.</strong> Get AI analysis of thousands of viral videos in your niche. Understand the patterns, timing, and elements that make content explode.
-                  </p>
-                  <a href="#" className="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-sm">
-                    Show me viral secrets <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
-                </Card>
-              </DialogTrigger>
+              {/* Mentor Match */}
+              <Card className="p-6 flex flex-col gap-4 bg-white/90 backdrop-blur rounded-2xl shadow-lg">
+                <div className="flex items-center gap-3">
+                  <Compass className="h-7 w-7 text-purple-600" />
+                  <h3 className="text-xl font-semibold text-gray-900">Mentor Match</h3>
+                </div>
+                <p className="text-gray-600">
+                  Book 1‑on‑1 sessions with seasoned creators who&apos;ve walked the path before you.
+                </p>
+              </Card>
 
-              {/* Feature 3 */}
-              <DialogTrigger asChild>
-                <Card 
-                  className="p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-indigo-50 to-indigo-100 border-indigo-200 cursor-pointer"
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && window.gtag) {
-                      window.gtag('event', 'feature_interest', {
-                        event_category: 'feature_interest',
-                        event_label: 'improve_your_content_card',
-                        value: 1,
-                      });
-                    }
-                    setClickedCardName('improve_your_content_card');
-                    setIsModalOpen(true); 
-                    setModalSubmissionStatus('');
-                    setModalFormData({ handle: '', email: '', phone: '' });
-                  }}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <div className="bg-indigo-600 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Improve Your Content</h3>
-                  <p className="text-gray-600">
-                    Get personalized feedback on your videos. See exactly what to improve in your <strong className="text-indigo-600">visuals, pitch, and storytelling</strong> based on top performers.
-                  </p>
-                  <a href="#" className="mt-4 inline-flex items-centers text-indigo-600 hover:text-indigo-800 font-semibold text-sm">
-                      Analyze my content <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
-                </Card>
-              </DialogTrigger>
+              {/* Top 100 Influencer Reports */}
+              <Card className="p-6 flex flex-col gap-4 bg-white/90 backdrop-blur rounded-2xl shadow-lg">
+                <div className="flex items-center gap-3">
+                  <FileCheck className="h-7 w-7 text-purple-600" />
+                  <h3 className="text-xl font-semibold text-gray-900">Top 100 Influencer Reports</h3>
+                </div>
+                <p className="text-gray-600">
+                  Weekly reverse‑engineered playbooks of the hottest 100 creators in your niche.
+                </p>
+              </Card>
 
-              {/* Feature 4 */}
-              <DialogTrigger asChild>
-                <Card 
-                  className="p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-emerald-100 border-emerald-200 cursor-pointer"
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && window.gtag) {
-                      window.gtag('event', 'feature_interest', {
-                        event_category: 'feature_interest',
-                        event_label: 'protect_your_brand_deals_card',
-                        value: 1,
-                      });
-                    }
-                    setClickedCardName('protect_your_brand_deals_card');
-                    setIsModalOpen(true); 
-                    setModalSubmissionStatus('');
-                    setModalFormData({ handle: '', email: '', phone: '' });
-                  }}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <div className="bg-emerald-600 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                    <FileCheck className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Protect Your Brand Deals</h3>
-                  <p className="text-gray-600">
-                    Assess <strong className="text-emerald-600">contracts</strong> for risk and fairness with AI-powered legal insights
-                  </p>
-                  <a href="#" className="mt-4 inline-flex items-center text-emerald-600 hover:text-emerald-800 font-semibold text-sm">
-                      Protect my deals <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
-                </Card>
-              </DialogTrigger>
+              {/* AI‑Powered Insights */}
+              <Card className="p-6 flex flex-col gap-4 bg-white/90 backdrop-blur rounded-2xl shadow-lg">
+                <div className="flex items-center gap-3">
+                  <BarChart3 className="h-7 w-7 text-purple-600" />
+                  <h3 className="text-xl font-semibold text-gray-900">AI‑Powered Insights</h3>
+                </div>
+                <p className="text-gray-600">
+                  Spot hidden trends in comments, sentiment, and retention curves with our multi‑modal engine.
+                </p>
+              </Card>
 
-              {/* Feature 5 */}
-              <DialogTrigger asChild>
-                <Card 
-                  className="p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 cursor-pointer"
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && window.gtag) {
-                      window.gtag('event', 'feature_interest', {
-                        event_category: 'feature_interest',
-                        event_label: 'find_your_mentor_card',
-                        value: 1,
-                      });
-                    }
-                    setClickedCardName('find_your_mentor_card');
-                    setIsModalOpen(true); 
-                    setModalSubmissionStatus('');
-                    setModalFormData({ handle: '', email: '', phone: '' });
-                  }}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <div className="bg-orange-600 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                    <Compass className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Mentor Matching</h3>
-                  <p className="text-gray-600">
-                    Connect with relevant <strong className="text-orange-600">mentors</strong> who guide your creative journey to new heights
-                  </p>
-                  <a href="#" className="mt-4 inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm">
-                      Find my mentor <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
-                </Card>
-              </DialogTrigger>
+              {/* Community Haven */}
+              <Card className="p-6 flex flex-col gap-4 bg-white/90 backdrop-blur rounded-2xl shadow-lg">
+                <div className="flex items-center gap-3">
+                  <Users className="h-7 w-7 text-purple-600" />
+                  <h3 className="text-xl font-semibold text-gray-900">Community Haven</h3>
+                </div>
+                <p className="text-gray-600">
+                  Private circles, AMAs, and collab boards so you never create in isolation.
+                </p>
+              </Card>
 
-              {/* Feature 6 */}
-              <DialogTrigger asChild>
-                <Card 
-                  className="p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 cursor-pointer"
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && window.gtag) {
-                      window.gtag('event', 'feature_card_click', {
-                        event_category: 'feature_interest',
-                        event_label: 'creator_mental_health_first_card',
-                        value: 1,
-                      });
-                    }
-                    setClickedCardName('creator_mental_health_first_card');
-                    setIsModalOpen(true); 
-                    setModalSubmissionStatus('');
-                    setModalFormData({ handle: '', email: '', phone: '' });
-                  }}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <div className="bg-pink-600 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                    <Shield className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Creator Mental Health First</h3>
-                  <p className="text-gray-600">
-                    Share your real struggles without judgment. Connect with other creators in an <strong className="text-pink-600">anonymous, supportive space</strong> where you can be vulnerable and get real help.
-                  </p>
-                  <a href="#" className="mt-4 inline-flex items-center text-pink-600 hover:text-pink-800 font-semibold text-sm">
-                      Join safe community <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
-                </Card>
-              </DialogTrigger>
+              {/* Wellness &amp; Burnout Toolkit */}
+              <Card className="p-6 flex flex-col gap-4 bg-white/90 backdrop-blur rounded-2xl shadow-lg">
+                <div className="flex items-center gap-3">
+                  <Shield className="h-7 w-7 text-purple-600" />
+                  <h3 className="text-xl font-semibold text-gray-900">Wellness &amp; Burnout Toolkit</h3>
+                </div>
+                <p className="text-gray-600">
+                  Daily check‑ins, guided breathers, and progress nudges to keep your mind creator‑ready.
+                </p>
+              </Card>
             </div>
+
           </div>
         </div>
 
@@ -426,7 +276,7 @@ const Index = () => {
                   });
                 }
                 setClickedCardName('main_hero_cta_bottom'); // Label for this specific button
-                setIsModalOpen(true); 
+                setIsModalOpen(true);
                 setModalSubmissionStatus('');
                 setModalFormData({ handle: '', email: '', phone: '' });
               }}>
@@ -436,7 +286,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </>;
+    </>
   );
-
-  export default Index;
+}
