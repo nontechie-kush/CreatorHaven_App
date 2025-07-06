@@ -1,0 +1,427 @@
+Retrieving logs...
+============= i-0c5dfbd705b7c5e34 ==============
+----------------------------------------
+/var/log/web.stdout.log
+----------------------------------------
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:    return util.import_app(self.app_uri)
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/util.py", line 370, in import_app
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:    mod = importlib.import_module(module)
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:  File "/usr/lib64/python3.13/importlib/__init__.py", line 88, in import_module
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:    return _bootstrap._gcd_import(name[level:], package, level)
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]:  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]: ModuleNotFoundError: No module named 'application'
+Jul  4 09:42:39 ip-172-31-2-95 web[2195]: [2025-07-04 09:42:39 +0000] [2195] [INFO] Worker exiting (pid: 2195)
+Jul  4 09:42:39 ip-172-31-2-95 web[2191]: [2025-07-04 09:42:39 +0000] [2191] [ERROR] Worker (pid:2195) exited with code 3
+Jul  4 09:42:39 ip-172-31-2-95 web[2191]: [2025-07-04 09:42:39 +0000] [2191] [ERROR] Shutting down: Master
+Jul  4 09:42:39 ip-172-31-2-95 web[2191]: [2025-07-04 09:42:39 +0000] [2191] [ERROR] Reason: Worker failed to boot.
+Jul  4 09:42:40 ip-172-31-2-95 web[2197]: [2025-07-04 09:42:40 +0000] [2197] [INFO] Starting gunicorn 23.0.0
+Jul  4 09:42:40 ip-172-31-2-95 web[2197]: [2025-07-04 09:42:40 +0000] [2197] [INFO] Listening at: http://127.0.0.1:8000 (2197)
+Jul  4 09:42:40 ip-172-31-2-95 web[2197]: [2025-07-04 09:42:40 +0000] [2197] [INFO] Using worker: gthread
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]: [2025-07-04 09:42:40 +0000] [2201] [INFO] Booting worker with pid: 2201
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]: [2025-07-04 09:42:40 +0000] [2201] [ERROR] Exception in worker process
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]: Traceback (most recent call last):
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    worker.init_process()
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    ~~~~~~~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/workers/gthread.py", line 94, in init_process
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    super().init_process()
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    ~~~~~~~~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/workers/base.py", line 135, in init_process
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    self.load_wsgi()
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    ~~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    self.wsgi = self.app.wsgi()
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:                ~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/app/base.py", line 66, in wsgi
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    self.callable = self.load()
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:                    ~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    return self.load_wsgiapp()
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:           ~~~~~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    return util.import_app(self.app_uri)
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/util.py", line 370, in import_app
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    mod = importlib.import_module(module)
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "/usr/lib64/python3.13/importlib/__init__.py", line 88, in import_module
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:    return _bootstrap._gcd_import(name[level:], package, level)
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]:  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]: ModuleNotFoundError: No module named 'application'
+Jul  4 09:42:40 ip-172-31-2-95 web[2201]: [2025-07-04 09:42:40 +0000] [2201] [INFO] Worker exiting (pid: 2201)
+Jul  4 09:42:40 ip-172-31-2-95 web[2197]: [2025-07-04 09:42:40 +0000] [2197] [ERROR] Worker (pid:2201) exited with code 3
+Jul  4 09:42:40 ip-172-31-2-95 web[2197]: [2025-07-04 09:42:40 +0000] [2197] [ERROR] Shutting down: Master
+Jul  4 09:42:40 ip-172-31-2-95 web[2197]: [2025-07-04 09:42:40 +0000] [2197] [ERROR] Reason: Worker failed to boot.
+Jul  4 09:42:40 ip-172-31-2-95 web[2203]: [2025-07-04 09:42:40 +0000] [2203] [INFO] Starting gunicorn 23.0.0
+Jul  4 09:42:40 ip-172-31-2-95 web[2203]: [2025-07-04 09:42:40 +0000] [2203] [INFO] Listening at: http://127.0.0.1:8000 (2203)
+Jul  4 09:42:40 ip-172-31-2-95 web[2203]: [2025-07-04 09:42:40 +0000] [2203] [INFO] Using worker: gthread
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]: [2025-07-04 09:42:40 +0000] [2207] [INFO] Booting worker with pid: 2207
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]: [2025-07-04 09:42:40 +0000] [2207] [ERROR] Exception in worker process
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]: Traceback (most recent call last):
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    worker.init_process()
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    ~~~~~~~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/workers/gthread.py", line 94, in init_process
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    super().init_process()
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    ~~~~~~~~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/workers/base.py", line 135, in init_process
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    self.load_wsgi()
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    ~~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    self.wsgi = self.app.wsgi()
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:                ~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/app/base.py", line 66, in wsgi
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    self.callable = self.load()
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:                    ~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    return self.load_wsgiapp()
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:           ~~~~~~~~~~~~~~~~~^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    return util.import_app(self.app_uri)
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.13/site-packages/gunicorn/util.py", line 370, in import_app
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    mod = importlib.import_module(module)
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "/usr/lib64/python3.13/importlib/__init__.py", line 88, in import_module
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:    return _bootstrap._gcd_import(name[level:], package, level)
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]:  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]: ModuleNotFoundError: No module named 'application'
+Jul  4 09:42:40 ip-172-31-2-95 web[2207]: [2025-07-04 09:42:40 +0000] [2207] [INFO] Worker exiting (pid: 2207)
+Jul  4 09:42:40 ip-172-31-2-95 web[2203]: [2025-07-04 09:42:40 +0000] [2203] [ERROR] Worker (pid:2207) exited with code 3
+Jul  4 09:42:40 ip-172-31-2-95 web[2203]: [2025-07-04 09:42:40 +0000] [2203] [ERROR] Shutting down: Master
+Jul  4 09:42:40 ip-172-31-2-95 web[2203]: [2025-07-04 09:42:40 +0000] [2203] [ERROR] Reason: Worker failed to boot.
+Jul  4 10:18:31 ip-172-31-2-95 web[3949]: [2025-07-04 10:18:31 +0000] [3949] [INFO] Starting gunicorn 23.0.0
+Jul  4 10:18:31 ip-172-31-2-95 web[3949]: [2025-07-04 10:18:31 +0000] [3949] [INFO] Listening at: http://0.0.0.0:8080 (3949)
+Jul  4 10:18:31 ip-172-31-2-95 web[3949]: [2025-07-04 10:18:31 +0000] [3949] [INFO] Using worker: sync
+Jul  4 10:18:31 ip-172-31-2-95 web[3957]: [2025-07-04 10:18:31 +0000] [3957] [INFO] Booting worker with pid: 3957
+
+
+----------------------------------------
+/var/log/eb-engine.log
+----------------------------------------
+2025/07/06 10:22:53.031131 [INFO] Finished executing the config set Infra-EmbeddedPreBuild.
+
+2025/07/06 10:22:53.031164 [INFO] Executing instruction: StageApplication
+2025/07/06 10:22:53.031167 [INFO] Recreating /var/app/staging/
+2025/07/06 10:22:53.031274 [INFO] extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/
+2025/07/06 10:22:53.031284 [INFO] Running command: /usr/bin/unzip -q -o /opt/elasticbeanstalk/deployment/app_source_bundle -d /var/app/staging/
+2025/07/06 10:22:53.524232 [INFO] finished extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/ successfully
+2025/07/06 10:22:53.525212 [ERROR] An error occurred during execution of command [app-deploy] - [StageApplication]. Stop running the command. Error: chown /var/app/staging/venv/bin/python: no such file or directory 
+
+2025/07/06 10:22:53.525220 [INFO] Executing cleanup logic
+2025/07/06 10:22:53.525288 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[{"msg":"Instance deployment failed. For details, see 'eb-engine.log'.","timestamp":1751797373525,"severity":"ERROR"}]}]}
+
+2025/07/06 10:22:53.525583 [INFO] Platform Engine finished execution on command: app-deploy
+
+2025/07/06 10:28:31.040787 [INFO] Starting...
+2025/07/06 10:28:31.040831 [INFO] Starting EBPlatform-PlatformEngine
+2025/07/06 10:28:31.040866 [INFO] reading event message file
+2025/07/06 10:28:31.041166 [INFO] Engine received EB command cfn-hup-exec
+
+2025/07/06 10:28:31.096045 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:eu-north-1:848175179632:stack/awseb-e-gup7am5zwx-stack/009b6d00-58bb-11f0-8307-0e91e69d878b -r AWSEBAutoScalingGroup --region eu-north-1
+2025/07/06 10:28:31.373102 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:eu-north-1:848175179632:stack/awseb-e-gup7am5zwx-stack/009b6d00-58bb-11f0-8307-0e91e69d878b -r AWSEBBeanstalkMetadata --region eu-north-1
+2025/07/06 10:28:31.655765 [INFO] checking whether command app-deploy is applicable to this instance...
+2025/07/06 10:28:31.655777 [INFO] this command is applicable to the instance, thus instance should execute command
+2025/07/06 10:28:31.655779 [INFO] Engine command: (app-deploy)
+
+2025/07/06 10:28:31.655783 [INFO] Downloading EB Application...
+2025/07/06 10:28:31.655785 [INFO] Region: eu-north-1
+2025/07/06 10:28:31.655787 [INFO] envID: e-gup7am5zwx
+2025/07/06 10:28:31.655789 [INFO] envBucket: elasticbeanstalk-eu-north-1-848175179632
+2025/07/06 10:28:31.655791 [INFO] accountID: 848175179632
+2025/07/06 10:28:31.655794 [INFO] Using manifest file name from command request
+2025/07/06 10:28:31.655799 [INFO] Manifest name is : manifest_1751797689119
+2025/07/06 10:28:31.655801 [INFO] Download app version manifest
+2025/07/06 10:28:31.655956 [INFO] Downloading: bucket: elasticbeanstalk-eu-north-1-848175179632, object: resources/environments/e-gup7am5zwx/_runtime/versions/manifest_1751797689119, expected bucket owner: 848175179632
+2025/07/06 10:28:31.688096 [INFO] Download successful112bytes downloaded
+2025/07/06 10:28:31.688223 [INFO] Trying to read and parse version manifest...
+2025/07/06 10:28:31.689440 [INFO] Downloading: bucket: elasticbeanstalk-eu-north-1-848175179632, object: resources/environments/e-gup7am5zwx/_runtime/_versions/CreatorHaven-Backend/app-250706_155756423750, expected bucket owner: 848175179632
+2025/07/06 10:28:31.812854 [INFO] Download successful16158590bytes downloaded
+2025/07/06 10:28:31.834316 [INFO] Executing instruction: ElectLeader
+2025/07/06 10:28:31.834325 [INFO] Running leader election for instance i-0c5dfbd705b7c5e34...
+2025/07/06 10:28:31.834328 [INFO] Calling the cfn-elect-cmd-leader to elect the command leader.
+2025/07/06 10:28:31.834341 [INFO] Running command: /opt/aws/bin/cfn-elect-cmd-leader --stack arn:aws:cloudformation:eu-north-1:848175179632:stack/awseb-e-gup7am5zwx-stack/009b6d00-58bb-11f0-8307-0e91e69d878b --command-name ElasticBeanstalkCommand-AWSEBAutoScalingGroup --invocation-id ca96ffec-59fc-44d7-b046-0f2a05a9702c --listener-id i-0c5dfbd705b7c5e34 --region eu-north-1
+2025/07/06 10:28:32.140088 [INFO] Instance is Leader.
+2025/07/06 10:28:32.140131 [INFO] Executing instruction: stopSqsd
+2025/07/06 10:28:32.140137 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2025/07/06 10:28:32.140152 [INFO] Executing instruction: PreBuildEbExtension
+2025/07/06 10:28:32.140155 [INFO] Starting executing the config set Infra-EmbeddedPreBuild.
+2025/07/06 10:28:32.140167 [INFO] Running command: /opt/aws/bin/cfn-init -s arn:aws:cloudformation:eu-north-1:848175179632:stack/awseb-e-gup7am5zwx-stack/009b6d00-58bb-11f0-8307-0e91e69d878b -r AWSEBAutoScalingGroup --region eu-north-1 --configsets Infra-EmbeddedPreBuild
+2025/07/06 10:28:32.440667 [INFO] Finished executing the config set Infra-EmbeddedPreBuild.
+
+2025/07/06 10:28:32.440704 [INFO] Executing instruction: StageApplication
+2025/07/06 10:28:32.440708 [INFO] Recreating /var/app/staging/
+2025/07/06 10:28:32.486421 [INFO] extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/
+2025/07/06 10:28:32.486441 [INFO] Running command: /usr/bin/unzip -q -o /opt/elasticbeanstalk/deployment/app_source_bundle -d /var/app/staging/
+2025/07/06 10:28:32.974653 [INFO] finished extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/ successfully
+2025/07/06 10:28:32.975731 [ERROR] An error occurred during execution of command [app-deploy] - [StageApplication]. Stop running the command. Error: chown /var/app/staging/venv/bin/python: no such file or directory 
+
+2025/07/06 10:28:32.975739 [INFO] Executing cleanup logic
+2025/07/06 10:28:32.975822 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[{"msg":"Instance deployment failed. For details, see 'eb-engine.log'.","timestamp":1751797712975,"severity":"ERROR"}]}]}
+
+2025/07/06 10:28:32.975968 [INFO] Platform Engine finished execution on command: app-deploy
+
+2025/07/06 10:29:57.931360 [INFO] Starting...
+2025/07/06 10:29:57.931408 [INFO] Starting EBPlatform-PlatformEngine
+2025/07/06 10:29:57.931443 [INFO] reading event message file
+2025/07/06 10:29:57.931779 [INFO] Engine received EB command cfn-hup-exec
+
+2025/07/06 10:29:58.020695 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:eu-north-1:848175179632:stack/awseb-e-gup7am5zwx-stack/009b6d00-58bb-11f0-8307-0e91e69d878b -r AWSEBAutoScalingGroup --region eu-north-1
+2025/07/06 10:29:58.312683 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:eu-north-1:848175179632:stack/awseb-e-gup7am5zwx-stack/009b6d00-58bb-11f0-8307-0e91e69d878b -r AWSEBBeanstalkMetadata --region eu-north-1
+2025/07/06 10:29:58.601385 [INFO] checking whether command tail-log is applicable to this instance...
+2025/07/06 10:29:58.601396 [INFO] this command is applicable to the instance, thus instance should execute command
+2025/07/06 10:29:58.601399 [INFO] Engine command: (tail-log)
+
+2025/07/06 10:29:58.601466 [INFO] Executing instruction: GetTailLogs
+2025/07/06 10:29:58.601473 [INFO] Tail Logs...
+2025/07/06 10:29:58.601974 [INFO] Running command: tail -n 100 /var/log/nginx/access.log
+2025/07/06 10:29:58.604250 [INFO] Running command: tail -n 100 /var/log/nginx/error.log
+2025/07/06 10:29:58.606301 [INFO] Running command: tail -n 100 /var/log/web.stdout.log
+2025/07/06 10:29:58.608032 [INFO] Running command: tail -n 100 /var/log/eb-engine.log
+2025/07/06 10:29:58.609694 [INFO] Running command: tail -n 100 /var/log/eb-hooks.log
+2025/07/06 10:29:58.673808 [INFO] Executing cleanup logic
+2025/07/06 10:29:58.673880 [INFO] CommandService Response: {"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"Engine execution has succeeded.","returncode":0,"events":[{"msg":"Instance deployment completed successfully.","timestamp":1751797798673,"severity":"INFO"}]}]}
+
+2025/07/06 10:29:58.673899 [INFO] Platform Engine finished execution on command: tail-log
+
+2025/07/06 10:31:22.517025 [INFO] Starting...
+2025/07/06 10:31:22.517078 [INFO] Starting EBPlatform-PlatformEngine
+2025/07/06 10:31:22.517115 [INFO] reading event message file
+2025/07/06 10:31:22.517467 [INFO] Engine received EB command cfn-hup-exec
+
+2025/07/06 10:31:22.581070 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:eu-north-1:848175179632:stack/awseb-e-gup7am5zwx-stack/009b6d00-58bb-11f0-8307-0e91e69d878b -r AWSEBAutoScalingGroup --region eu-north-1
+2025/07/06 10:31:22.884172 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:eu-north-1:848175179632:stack/awseb-e-gup7am5zwx-stack/009b6d00-58bb-11f0-8307-0e91e69d878b -r AWSEBBeanstalkMetadata --region eu-north-1
+2025/07/06 10:31:23.174711 [INFO] checking whether command tail-log is applicable to this instance...
+2025/07/06 10:31:23.174723 [INFO] this command is applicable to the instance, thus instance should execute command
+2025/07/06 10:31:23.174726 [INFO] Engine command: (tail-log)
+
+2025/07/06 10:31:23.174768 [INFO] Executing instruction: GetTailLogs
+2025/07/06 10:31:23.174771 [INFO] Tail Logs...
+2025/07/06 10:31:23.175108 [INFO] Running command: tail -n 100 /var/log/web.stdout.log
+2025/07/06 10:31:23.177097 [INFO] Running command: tail -n 100 /var/log/eb-engine.log
+
+
+----------------------------------------
+/var/log/eb-hooks.log
+----------------------------------------
+
+
+----------------------------------------
+/var/log/nginx/access.log
+----------------------------------------
+31.171.130.23 - - [05/Jul/2025:22:50:13 +0000] "GET /..;/env.js HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.8 - - [05/Jul/2025:22:50:13 +0000] "GET /..;/env.prod.js HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.33 - - [05/Jul/2025:22:50:13 +0000] "GET /..;/env.production.js HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.28 - - [05/Jul/2025:22:50:14 +0000] "GET /config.js HTTP/1.1" 502 150 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.5 - - [05/Jul/2025:22:50:14 +0000] "GET /api/config.js HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.18 - - [05/Jul/2025:22:50:14 +0000] "GET /app/config.js HTTP/1.1" 502 150 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.2 - - [05/Jul/2025:22:50:15 +0000] "GET /.aws/credentials HTTP/1.1" 502 150 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.45 - - [05/Jul/2025:22:50:15 +0000] "GET /app_dev.php/_profiler/open?file=app/config/parameters.yml HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.24 - - [05/Jul/2025:22:50:15 +0000] "GET /_profiler/open?file=app/config/parameters.yml HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.21 - - [05/Jul/2025:22:50:15 +0000] "GET /app/config/parameters.yml HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" "-"
+31.171.130.34 - - [05/Jul/2025:22:50:15 +0000] "GET /config/parameters.yml HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.10 - - [05/Jul/2025:22:50:15 +0000] "GET /parameters.yml HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" "-"
+31.171.130.41 - - [05/Jul/2025:22:50:15 +0000] "GET /_profiler/phpinfo HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.1 - - [05/Jul/2025:22:50:16 +0000] "GET /app_dev.php/_profiler/phpinfo HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0" "-"
+31.171.130.37 - - [05/Jul/2025:22:50:17 +0000] "GET /phpinfo.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" "-"
+31.171.130.9 - - [05/Jul/2025:22:50:17 +0000] "GET /info.php HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.1 - - [05/Jul/2025:22:50:17 +0000] "GET /owncloud/apps/graphapi/vendor/microsoft/microsoft-graph/tests/GetPhpInfo.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.45 - - [05/Jul/2025:22:50:18 +0000] "GET /?phpinfo=1 HTTP/1.1" 502 552 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.19 - - [05/Jul/2025:22:50:18 +0000] "GET /tool/view/phpinfo.view.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.49 - - [05/Jul/2025:22:50:19 +0000] "GET /phpinfo HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.40 - - [05/Jul/2025:22:50:19 +0000] "GET /symfony/public/_profiler/phpinfo HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.5 - - [05/Jul/2025:22:50:21 +0000] "GET /html/phpinfo.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.29 - - [05/Jul/2025:22:50:22 +0000] "GET /?phpinfo=-1 HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.22 - - [05/Jul/2025:22:50:22 +0000] "GET /__info.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.42 - - [05/Jul/2025:22:50:23 +0000] "GET /_info-backoffice.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.29 - - [05/Jul/2025:22:50:24 +0000] "GET /_info.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" "-"
+31.171.130.44 - - [05/Jul/2025:22:50:25 +0000] "GET /_phpinf.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.31 - - [05/Jul/2025:22:50:25 +0000] "GET /_phpinfo.php HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.5 - - [05/Jul/2025:22:50:25 +0000] "GET /.__info.php HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0" "-"
+31.171.130.9 - - [05/Jul/2025:22:50:32 +0000] "GET /0.0_phpinfo.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" "-"
+31.171.130.16 - - [05/Jul/2025:22:50:32 +0000] "GET /00_server_info.php HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.12 - - [05/Jul/2025:22:50:32 +0000] "GET /02-info.php HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.2 - - [05/Jul/2025:22:50:33 +0000] "GET /1_1_PhpInfo.php HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0" "-"
+31.171.130.12 - - [05/Jul/2025:22:50:33 +0000] "GET /5info.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+31.171.130.20 - - [05/Jul/2025:22:50:33 +0000] "GET / HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0" "-"
+31.171.130.26 - - [05/Jul/2025:22:50:33 +0000] "GET /api/index.php/v1/config/application?public=true HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15" "-"
+93.174.93.12 - - [05/Jul/2025:23:06:12 +0000] "\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RH\xC5\x1A#\xF7:N\xDF\xE2\xB4\x82/\xFF\x09T\x9F\xA7\xC4y\xB0h\xC6\x13\x8C\xA4\x1C=\x22\xE1\x1A\x98 \x84\xB4,\x85\xAFn\xE3Y\xBBbhl\xFF(=':\xA9\x82\xD9o\xC8\xA2\xD7\x93\x98\xB4\xEF\x80\xE5\xB9\x90\x00(\xC0" 400 150 "-" "-" "-"
+89.42.231.140 - - [05/Jul/2025:23:34:34 +0000] "POST /goform/formJsonAjaxReq HTTP/1.1" 502 150 "http://13.49.128.32/home.asp" "Go-http-client/1.1" "-"
+46.202.78.13 - - [06/Jul/2025:00:03:49 +0000] "GET /.env HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+46.202.78.13 - - [06/Jul/2025:00:03:50 +0000] "POST / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+45.82.78.254 - - [06/Jul/2025:00:15:59 +0000] "GET /favicon.ico HTTP/1.1" 502 150 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0" "-"
+172.178.82.191 - - [06/Jul/2025:00:19:32 +0000] "GET / HTTP/1.1" 502 150 "-" "Mozilla/5.0 zgrab/0.x" "-"
+160.250.180.19 - - [06/Jul/2025:00:40:58 +0000] "POST /boaform/admin/formLogin HTTP/1.1" 502 150 "http://13.49.128.32:80/admin/login.asp" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:71.0) Gecko/20100101 Firefox/71.0" "-"
+160.250.180.19 - - [06/Jul/2025:00:40:58 +0000] "" 400 0 "-" "-" "-"
+138.199.34.134 - - [06/Jul/2025:01:02:56 +0000] "GET /.git/config HTTP/1.1" 502 150 "-" "Mozilla/5.0 (compatible; Scanner/1.0)" "-"
+91.196.152.212 - - [06/Jul/2025:01:43:28 +0000] "\x16\x03\x03\x01\xA5\x01\x00\x01\xA1\x03\x03\x1Ce\xA5\x91\xB9,r\xA7\x8E\xF9 \xC7\xB3,\xE6\xEAH\xF8\xE4\xA1\x81\x18\xC4\x02\xB1\xFB\xCF\xD12-mC E\x0BC\xD2=\xDEj\x0F9\x9826(\x04D2\xF0\xF2 \xC4\x03\xDF\xA3g\xAF6\xD9\x0B\xC9\xFD;\xCD\x00\x8A\x00\x16\x003\x00g\xC0\x9E\xC0\xA2\x00\x9E\x009\x00k\xC0\x9F\xC0\xA3\x00\x9F\x00E\x00\xBE\x00\x88\x00\xC4\x00\x9A\xC0\x08\xC0\x09\xC0#\xC0\xAC\xC0\xAE\xC0+\xC0" 400 150 "-" "-" "-"
+91.196.152.209 - - [06/Jul/2025:01:43:31 +0000] "GET / HTTP/1.1" 502 150 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0" "-"
+162.216.149.251 - - [06/Jul/2025:01:53:56 +0000] "GET / HTTP/1.1" 502 150 "-" "Expanse, a Palo Alto Networks company, searches across the global IPv4 space multiple times per day to identify customers&#39; presences on the Internet. If you would like to be excluded from our scans, please send IP addresses/domains to: scaninfo@paloaltonetworks.com" "-"
+82.24.249.213 - - [06/Jul/2025:02:01:17 +0000] "GET /.env HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+82.24.249.213 - - [06/Jul/2025:02:01:17 +0000] "POST / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+20.163.34.47 - - [06/Jul/2025:02:04:05 +0000] "GET /portal/redlion HTTP/1.1" 502 150 "-" "Mozilla/5.0 zgrab/0.x" "-"
+8.219.48.65 - - [06/Jul/2025:02:04:34 +0000] "GET / HTTP/1.1" 502 150 "-" "curl/7.64.1" "-"
+192.197.201.114 - - [06/Jul/2025:02:05:35 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36" "-"
+91.196.152.121 - - [06/Jul/2025:02:09:20 +0000] "GET /favicon.ico HTTP/1.1" 502 150 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0" "-"
+43.129.169.161 - - [06/Jul/2025:02:29:05 +0000] "HEAD /Core/Skin/Login.aspx HTTP/1.1" 502 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+64.62.197.47 - - [06/Jul/2025:02:53:26 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" "-"
+64.62.197.47 - - [06/Jul/2025:02:54:56 +0000] "GET /webui/ HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0" "-"
+64.62.197.52 - - [06/Jul/2025:02:56:42 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" "-"
+64.62.197.47 - - [06/Jul/2025:02:57:08 +0000] "GET /geoserver/web/ HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" "-"
+147.93.145.16 - - [06/Jul/2025:03:10:02 +0000] "GET / HTTP/1.1" 502 150 "-" "-" "-"
+104.239.73.253 - - [06/Jul/2025:03:35:31 +0000] "GET /.env HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+104.239.73.253 - - [06/Jul/2025:03:35:32 +0000] "POST / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+159.65.187.4 - - [06/Jul/2025:03:52:22 +0000] "\x00\x0E8,4\xE1\xA9\xEB\xE4\xB9-\x00\x00\x00\x00\x00" 400 150 "-" "-" "-"
+43.129.169.161 - - [06/Jul/2025:04:08:00 +0000] "HEAD /Core/Skin/Login.aspx HTTP/1.1" 502 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+54.90.135.217 - - [06/Jul/2025:04:54:31 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" "-"
+196.251.83.111 - - [06/Jul/2025:05:04:12 +0000] "GET /.git/config HTTP/1.1" 502 552 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+43.129.169.161 - - [06/Jul/2025:05:47:26 +0000] "HEAD /Core/Skin/Login.aspx HTTP/1.1" 502 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+146.70.132.242 - - [06/Jul/2025:06:16:30 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" "-"
+82.29.227.230 - - [06/Jul/2025:06:25:02 +0000] "GET /.env HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+82.29.227.230 - - [06/Jul/2025:06:25:02 +0000] "POST / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+104.222.185.111 - - [06/Jul/2025:07:11:48 +0000] "GET /.env HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+104.222.185.111 - - [06/Jul/2025:07:11:48 +0000] "POST / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+43.129.169.161 - - [06/Jul/2025:07:26:34 +0000] "HEAD /Core/Skin/Login.aspx HTTP/1.1" 502 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+139.59.42.255 - - [06/Jul/2025:07:49:06 +0000] "GET /aaa9 HTTP/1.1" 502 150 "-" "Mozilla/5.0 zgrab/0.x" "-"
+139.59.42.255 - - [06/Jul/2025:07:49:12 +0000] "GET /aab8 HTTP/1.1" 502 150 "-" "Mozilla/5.0 zgrab/0.x" "-"
+139.59.42.255 - - [06/Jul/2025:07:49:22 +0000] "GET / HTTP/1.1" 502 150 "-" "Mozilla/5.0 zgrab/0.x" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "GET /t4 HTTP/1.1" 502 150 "-" "Mozilla/5.0" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "GET /geoip/ HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "GET /1.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "GET /password.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "\x16\x03\x01\x00u\x01\x00\x00q\x03\x03S/\xAB\xFF\xA3\x97\xD6\xF5\xE7\x07\xEC\xC4\xC1\xDC\xA5J\xC2\xFC\xB2\x82\x8E\x11\x9C@\xA2\x91\x91\xE9\x8F\xB6KH\x00\x00\x1A\xC0/\xC0+\xC0\x11\xC0\x07\xC0\x13\xC0\x09\xC0\x14\xC0" 400 150 "-" "-" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "\x16\x03\x01\x00u\x01\x00\x00q\x03\x03\x1Cm\xD0z\xB7\xA9\xD1\xA2eUA\xA1_Id!\xF1T\xDF\xAF84\xE1t\xB0N9y\xB9\xBBQe\x00\x00\x1A\xC0/\xC0+\xC0\x11\xC0\x07\xC0\x13\xC0\x09\xC0\x14\xC0" 400 150 "-" "-" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "\x16\x03\x01\x00u\x01\x00\x00q\x03\x03\xEAn8t\x8CI\xE1\x1AQ\x81\x8D\xD0\x05y\x14\xB6\xA6\xC1\xC8\x94E\xE8\x14\xE0\xA2p\x8C\x86\x8E\xAD\xFE@\x00\x00\x1A\xC0/\xC0+\xC0\x11\xC0\x07\xC0\x13\xC0\x09\xC0\x14\xC0" 400 150 "-" "-" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "GET /form.html HTTP/1.1" 502 150 "-" "curl/8.1.2" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "GET /upl.php HTTP/1.1" 502 150 "-" "Mozilla/5.0" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" "-"
+64.227.36.198 - - [06/Jul/2025:08:04:10 +0000] "GET /systembc/password.php HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" "-"
+5.79.105.22 - - [06/Jul/2025:08:12:04 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "-"
+5.79.105.22 - - [06/Jul/2025:08:21:37 +0000] "GET / HTTP/1.0" 502 150 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:71.0) Gecko/20100101 Firefox/71.0" "-"
+185.242.226.153 - - [06/Jul/2025:08:45:53 +0000] "\x16\x03\x01\x00\x8A\x01\x00\x00\x86\x03\x03\xFE\x19\xCA\xA0\x9C8m\xB1N\xA5\xFE\x7F%\xA3\xC4\xDEO\xDD\xB32\xFA\xA1>P\x84>]Wo\xCC\x5C\xBE\x00\x00\x1A\xC0/\xC0+\xC0\x11\xC0\x07\xC0\x13\xC0\x09\xC0\x14\xC0" 400 150 "-" "-" "-"
+43.129.169.161 - - [06/Jul/2025:09:05:43 +0000] "HEAD /Core/Skin/Login.aspx HTTP/1.1" 502 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" "-"
+5.79.105.22 - - [06/Jul/2025:09:14:32 +0000] "GET /cgi-bin/luci/;stok=/locale HTTP/1.1" 502 150 "-" "-" "-"
+206.168.34.208 - - [06/Jul/2025:09:25:26 +0000] "GET / HTTP/1.1" 502 150 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" "-"
+206.168.34.208 - - [06/Jul/2025:09:25:29 +0000] "PRI * HTTP/2.0" 400 150 "-" "-" "-"
+206.168.34.208 - - [06/Jul/2025:09:25:42 +0000] "GET /favicon.ico HTTP/1.1" 502 150 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" "-"
+206.168.34.208 - - [06/Jul/2025:09:25:45 +0000] "PRI * HTTP/2.0" 400 150 "-" "-" "-"
+206.168.34.208 - - [06/Jul/2025:09:25:52 +0000] "GET /login HTTP/1.1" 502 150 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" "-"
+206.168.34.208 - - [06/Jul/2025:09:25:57 +0000] "\x16\x03\x01\x00\xEE\x01\x00\x00\xEA\x03\x03G0hB\x02L\x9A\xD1$\xC6#<\xD9\xD2\x8D\xC5'\x8A5`\xCA%" 400 150 "-" "-" "-"
+172.102.223.44 - - [06/Jul/2025:10:08:38 +0000] "GET /.env HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+172.102.223.44 - - [06/Jul/2025:10:08:38 +0000] "POST / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36" "-"
+
+
+----------------------------------------
+/var/log/nginx/error.log
+----------------------------------------
+2025/07/05 22:50:33 [error] 3992#3992: *745 connect() failed (111: Connection refused) while connecting to upstream, client: 31.171.130.12, server: , request: "GET /5info.php HTTP/1.1", upstream: "http://127.0.0.1:8000/5info.php", host: "13.49.128.32"
+2025/07/05 22:50:33 [error] 3992#3992: *747 connect() failed (111: Connection refused) while connecting to upstream, client: 31.171.130.20, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/05 22:50:33 [error] 3992#3992: *749 connect() failed (111: Connection refused) while connecting to upstream, client: 31.171.130.26, server: , request: "GET /api/index.php/v1/config/application?public=true HTTP/1.1", upstream: "http://127.0.0.1:8000/api/index.php/v1/config/application?public=true", host: "13.49.128.32"
+2025/07/05 23:06:12 [warn] 3992#3992: *751 using uninitialized "year" variable while logging request, client: 93.174.93.12, server: , request: "o kRH�#�:N�ⴂ/�	T���y�h���="�� ��,��n�Y�bhl�(=':���oȢד���幐 (�"
+2025/07/05 23:06:12 [warn] 3992#3992: *751 using uninitialized "month" variable while logging request, client: 93.174.93.12, server: , request: "o kRH�#�:N�ⴂ/�	T���y�h���="�� ��,��n�Y�bhl�(=':���oȢד���幐 (�"
+2025/07/05 23:06:12 [warn] 3992#3992: *751 using uninitialized "day" variable while logging request, client: 93.174.93.12, server: , request: "o kRH�#�:N�ⴂ/�	T���y�h���="�� ��,��n�Y�bhl�(=':���oȢד���幐 (�"
+2025/07/05 23:06:12 [warn] 3992#3992: *751 using uninitialized "hour" variable while logging request, client: 93.174.93.12, server: , request: "o kRH�#�:N�ⴂ/�	T���y�h���="�� ��,��n�Y�bhl�(=':���oȢד���幐 (�"
+2025/07/05 23:34:34 [error] 3992#3992: *752 connect() failed (111: Connection refused) while connecting to upstream, client: 89.42.231.140, server: , request: "POST /goform/formJsonAjaxReq HTTP/1.1", upstream: "http://127.0.0.1:8000/goform/formJsonAjaxReq", host: "13.49.128.32", referrer: "http://13.49.128.32/home.asp"
+2025/07/06 00:03:49 [error] 3992#3992: *754 connect() failed (111: Connection refused) while connecting to upstream, client: 46.202.78.13, server: , request: "GET /.env HTTP/1.1", upstream: "http://127.0.0.1:8000/.env", host: "13.49.128.32"
+2025/07/06 00:03:50 [error] 3992#3992: *756 connect() failed (111: Connection refused) while connecting to upstream, client: 46.202.78.13, server: , request: "POST / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 00:15:59 [error] 3992#3992: *758 connect() failed (111: Connection refused) while connecting to upstream, client: 45.82.78.254, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:8000/favicon.ico", host: "13.49.128.32"
+2025/07/06 00:19:32 [error] 3991#3991: *760 connect() failed (111: Connection refused) while connecting to upstream, client: 172.178.82.191, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 00:40:58 [error] 3991#3991: *762 connect() failed (111: Connection refused) while connecting to upstream, client: 160.250.180.19, server: , request: "POST /boaform/admin/formLogin HTTP/1.1", upstream: "http://127.0.0.1:8000/boaform/admin/formLogin", host: "13.49.128.32:80", referrer: "http://13.49.128.32:80/admin/login.asp"
+2025/07/06 00:40:58 [warn] 3991#3991: *762 using uninitialized "year" variable while logging request, client: 160.250.180.19, server: 
+2025/07/06 00:40:58 [warn] 3991#3991: *762 using uninitialized "month" variable while logging request, client: 160.250.180.19, server: 
+2025/07/06 00:40:58 [warn] 3991#3991: *762 using uninitialized "day" variable while logging request, client: 160.250.180.19, server: 
+2025/07/06 00:40:58 [warn] 3991#3991: *762 using uninitialized "hour" variable while logging request, client: 160.250.180.19, server: 
+2025/07/06 01:02:56 [error] 3991#3991: *765 connect() failed (111: Connection refused) while connecting to upstream, client: 138.199.34.134, server: , request: "GET /.git/config HTTP/1.1", upstream: "http://127.0.0.1:8000/.git/config", host: "13.49.128.32"
+2025/07/06 01:43:28 [warn] 3991#3991: *768 using uninitialized "year" variable while logging request, client: 91.196.152.212, server: , request: "� �e���,r��� ǳ,��H�䡁�����2-mC EC�=�j9�26(D2�� �ߣg�6���;� �  3 g���� � 9 k���� � E � � � ��	�#�����+�"
+2025/07/06 01:43:28 [warn] 3991#3991: *768 using uninitialized "month" variable while logging request, client: 91.196.152.212, server: , request: "� �e���,r��� ǳ,��H�䡁�����2-mC EC�=�j9�26(D2�� �ߣg�6���;� �  3 g���� � 9 k���� � E � � � ��	�#�����+�"
+2025/07/06 01:43:28 [warn] 3991#3991: *768 using uninitialized "day" variable while logging request, client: 91.196.152.212, server: , request: "� �e���,r��� ǳ,��H�䡁�����2-mC EC�=�j9�26(D2�� �ߣg�6���;� �  3 g���� � 9 k���� � E � � � ��	�#�����+�"
+2025/07/06 01:43:28 [warn] 3991#3991: *768 using uninitialized "hour" variable while logging request, client: 91.196.152.212, server: , request: "� �e���,r��� ǳ,��H�䡁�����2-mC EC�=�j9�26(D2�� �ߣg�6���;� �  3 g���� � 9 k���� � E � � � ��	�#�����+�"
+2025/07/06 01:43:31 [error] 3991#3991: *769 connect() failed (111: Connection refused) while connecting to upstream, client: 91.196.152.209, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 01:53:56 [error] 3991#3991: *771 connect() failed (111: Connection refused) while connecting to upstream, client: 162.216.149.251, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32:80"
+2025/07/06 02:01:17 [error] 3991#3991: *773 connect() failed (111: Connection refused) while connecting to upstream, client: 82.24.249.213, server: , request: "GET /.env HTTP/1.1", upstream: "http://127.0.0.1:8000/.env", host: "13.49.128.32"
+2025/07/06 02:01:17 [error] 3991#3991: *775 connect() failed (111: Connection refused) while connecting to upstream, client: 82.24.249.213, server: , request: "POST / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 02:04:05 [error] 3991#3991: *777 connect() failed (111: Connection refused) while connecting to upstream, client: 20.163.34.47, server: , request: "GET /portal/redlion HTTP/1.1", upstream: "http://127.0.0.1:8000/portal/redlion", host: "13.49.128.32"
+2025/07/06 02:04:34 [error] 3991#3991: *779 connect() failed (111: Connection refused) while connecting to upstream, client: 8.219.48.65, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32:80"
+2025/07/06 02:05:35 [error] 3991#3991: *781 connect() failed (111: Connection refused) while connecting to upstream, client: 192.197.201.114, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 02:09:20 [error] 3991#3991: *783 connect() failed (111: Connection refused) while connecting to upstream, client: 91.196.152.121, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:8000/favicon.ico", host: "13.49.128.32"
+2025/07/06 02:29:05 [error] 3991#3991: *785 connect() failed (111: Connection refused) while connecting to upstream, client: 43.129.169.161, server: , request: "HEAD /Core/Skin/Login.aspx HTTP/1.1", upstream: "http://127.0.0.1:8000/Core/Skin/Login.aspx", host: "13.49.128.32:80"
+2025/07/06 02:53:26 [error] 3991#3991: *787 connect() failed (111: Connection refused) while connecting to upstream, client: 64.62.197.47, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 02:54:56 [error] 3992#3992: *789 connect() failed (111: Connection refused) while connecting to upstream, client: 64.62.197.47, server: , request: "GET /webui/ HTTP/1.1", upstream: "http://127.0.0.1:8000/webui/", host: "13.49.128.32"
+2025/07/06 02:56:42 [error] 3992#3992: *791 connect() failed (111: Connection refused) while connecting to upstream, client: 64.62.197.52, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:8000/favicon.ico", host: "13.49.128.32"
+2025/07/06 02:57:08 [error] 3992#3992: *793 connect() failed (111: Connection refused) while connecting to upstream, client: 64.62.197.47, server: , request: "GET /geoserver/web/ HTTP/1.1", upstream: "http://127.0.0.1:8000/geoserver/web/", host: "13.49.128.32"
+2025/07/06 03:10:02 [error] 3992#3992: *795 connect() failed (111: Connection refused) while connecting to upstream, client: 147.93.145.16, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32:80"
+2025/07/06 03:35:31 [error] 3992#3992: *798 connect() failed (111: Connection refused) while connecting to upstream, client: 104.239.73.253, server: , request: "GET /.env HTTP/1.1", upstream: "http://127.0.0.1:8000/.env", host: "13.49.128.32"
+2025/07/06 03:35:32 [error] 3992#3992: *800 connect() failed (111: Connection refused) while connecting to upstream, client: 104.239.73.253, server: , request: "POST / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 03:52:22 [warn] 3992#3992: *802 using uninitialized "year" variable while logging request, client: 159.65.187.4, server: , request: " 8,4���-     "
+2025/07/06 03:52:22 [warn] 3992#3992: *802 using uninitialized "month" variable while logging request, client: 159.65.187.4, server: , request: " 8,4���-     "
+2025/07/06 03:52:22 [warn] 3992#3992: *802 using uninitialized "day" variable while logging request, client: 159.65.187.4, server: , request: " 8,4���-     "
+2025/07/06 03:52:22 [warn] 3992#3992: *802 using uninitialized "hour" variable while logging request, client: 159.65.187.4, server: , request: " 8,4���-     "
+2025/07/06 04:08:00 [error] 3992#3992: *803 connect() failed (111: Connection refused) while connecting to upstream, client: 43.129.169.161, server: , request: "HEAD /Core/Skin/Login.aspx HTTP/1.1", upstream: "http://127.0.0.1:8000/Core/Skin/Login.aspx", host: "13.49.128.32:80"
+2025/07/06 04:54:31 [error] 3992#3992: *806 connect() failed (111: Connection refused) while connecting to upstream, client: 54.90.135.217, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 05:04:12 [error] 3992#3992: *808 connect() failed (111: Connection refused) while connecting to upstream, client: 196.251.83.111, server: , request: "GET /.git/config HTTP/1.1", upstream: "http://127.0.0.1:8000/.git/config", host: "13.49.128.32"
+2025/07/06 05:47:26 [error] 3992#3992: *810 connect() failed (111: Connection refused) while connecting to upstream, client: 43.129.169.161, server: , request: "HEAD /Core/Skin/Login.aspx HTTP/1.1", upstream: "http://127.0.0.1:8000/Core/Skin/Login.aspx", host: "13.49.128.32:80"
+2025/07/06 06:16:30 [error] 3992#3992: *812 connect() failed (111: Connection refused) while connecting to upstream, client: 146.70.132.242, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 06:25:02 [error] 3992#3992: *814 connect() failed (111: Connection refused) while connecting to upstream, client: 82.29.227.230, server: , request: "GET /.env HTTP/1.1", upstream: "http://127.0.0.1:8000/.env", host: "13.49.128.32"
+2025/07/06 06:25:02 [error] 3992#3992: *816 connect() failed (111: Connection refused) while connecting to upstream, client: 82.29.227.230, server: , request: "POST / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 07:11:48 [error] 3991#3991: *819 connect() failed (111: Connection refused) while connecting to upstream, client: 104.222.185.111, server: , request: "GET /.env HTTP/1.1", upstream: "http://127.0.0.1:8000/.env", host: "13.49.128.32"
+2025/07/06 07:11:48 [error] 3991#3991: *821 connect() failed (111: Connection refused) while connecting to upstream, client: 104.222.185.111, server: , request: "POST / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 07:26:34 [error] 3991#3991: *823 connect() failed (111: Connection refused) while connecting to upstream, client: 43.129.169.161, server: , request: "HEAD /Core/Skin/Login.aspx HTTP/1.1", upstream: "http://127.0.0.1:8000/Core/Skin/Login.aspx", host: "13.49.128.32:80"
+2025/07/06 07:49:06 [error] 3991#3991: *825 connect() failed (111: Connection refused) while connecting to upstream, client: 139.59.42.255, server: , request: "GET /aaa9 HTTP/1.1", upstream: "http://127.0.0.1:8000/aaa9", host: "13.49.128.32"
+2025/07/06 07:49:12 [error] 3991#3991: *827 connect() failed (111: Connection refused) while connecting to upstream, client: 139.59.42.255, server: , request: "GET /aab8 HTTP/1.1", upstream: "http://127.0.0.1:8000/aab8", host: "13.49.128.32"
+2025/07/06 07:49:22 [error] 3991#3991: *829 connect() failed (111: Connection refused) while connecting to upstream, client: 139.59.42.255, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 08:04:10 [error] 3991#3991: *831 connect() failed (111: Connection refused) while connecting to upstream, client: 64.227.36.198, server: , request: "GET /t4 HTTP/1.1", upstream: "http://127.0.0.1:8000/t4", host: "13.49.128.32"
+2025/07/06 08:04:10 [error] 3991#3991: *833 connect() failed (111: Connection refused) while connecting to upstream, client: 64.227.36.198, server: , request: "GET /geoip/ HTTP/1.1", upstream: "http://127.0.0.1:8000/geoip/", host: "13.49.128.32"
+2025/07/06 08:04:10 [error] 3991#3991: *835 connect() failed (111: Connection refused) while connecting to upstream, client: 64.227.36.198, server: , request: "GET /1.php HTTP/1.1", upstream: "http://127.0.0.1:8000/1.php", host: "13.49.128.32"
+2025/07/06 08:04:10 [error] 3991#3991: *837 connect() failed (111: Connection refused) while connecting to upstream, client: 64.227.36.198, server: , request: "GET /password.php HTTP/1.1", upstream: "http://127.0.0.1:8000/password.php", host: "13.49.128.32"
+2025/07/06 08:04:10 [warn] 3991#3991: *840 using uninitialized "year" variable while logging request, client: 64.227.36.198, server: , request: " u  qS/����������ܥJ������@���鏶KH  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *840 using uninitialized "month" variable while logging request, client: 64.227.36.198, server: , request: " u  qS/����������ܥJ������@���鏶KH  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *840 using uninitialized "day" variable while logging request, client: 64.227.36.198, server: , request: " u  qS/����������ܥJ������@���鏶KH  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *840 using uninitialized "hour" variable while logging request, client: 64.227.36.198, server: , request: " u  qS/����������ܥJ������@���鏶KH  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *839 using uninitialized "year" variable while logging request, client: 64.227.36.198, server: , request: " u  qm�z��ѢeUA�_Id!�T߯84�t�N9y��Qe  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *839 using uninitialized "month" variable while logging request, client: 64.227.36.198, server: , request: " u  qm�z��ѢeUA�_Id!�T߯84�t�N9y��Qe  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *839 using uninitialized "day" variable while logging request, client: 64.227.36.198, server: , request: " u  qm�z��ѢeUA�_Id!�T߯84�t�N9y��Qe  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *839 using uninitialized "hour" variable while logging request, client: 64.227.36.198, server: , request: " u  qm�z��ѢeUA�_Id!�T߯84�t�N9y��Qe  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *841 using uninitialized "year" variable while logging request, client: 64.227.36.198, server: , request: " u  q�n8t�I�Q���y���ȔE��p�����@  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *841 using uninitialized "month" variable while logging request, client: 64.227.36.198, server: , request: " u  q�n8t�I�Q���y���ȔE��p�����@  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *841 using uninitialized "day" variable while logging request, client: 64.227.36.198, server: , request: " u  q�n8t�I�Q���y���ȔE��p�����@  �/�+����	��"
+2025/07/06 08:04:10 [warn] 3991#3991: *841 using uninitialized "hour" variable while logging request, client: 64.227.36.198, server: , request: " u  q�n8t�I�Q���y���ȔE��p�����@  �/�+����	��"
+2025/07/06 08:04:10 [error] 3991#3991: *842 connect() failed (111: Connection refused) while connecting to upstream, client: 64.227.36.198, server: , request: "GET /form.html HTTP/1.1", upstream: "http://127.0.0.1:8000/form.html", host: "13.49.128.32"
+2025/07/06 08:04:10 [error] 3991#3991: *844 connect() failed (111: Connection refused) while connecting to upstream, client: 64.227.36.198, server: , request: "GET /upl.php HTTP/1.1", upstream: "http://127.0.0.1:8000/upl.php", host: "13.49.128.32"
+2025/07/06 08:04:10 [error] 3992#3992: *846 connect() failed (111: Connection refused) while connecting to upstream, client: 64.227.36.198, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:8000/favicon.ico", host: "13.49.128.32"
+2025/07/06 08:04:10 [error] 3992#3992: *848 connect() failed (111: Connection refused) while connecting to upstream, client: 64.227.36.198, server: , request: "GET /systembc/password.php HTTP/1.1", upstream: "http://127.0.0.1:8000/systembc/password.php", host: "13.49.128.32"
+2025/07/06 08:12:04 [error] 3992#3992: *850 connect() failed (111: Connection refused) while connecting to upstream, client: 5.79.105.22, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32:80"
+2025/07/06 08:21:37 [error] 3992#3992: *853 connect() failed (111: Connection refused) while connecting to upstream, client: 5.79.105.22, server: , request: "GET / HTTP/1.0", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32:80"
+2025/07/06 08:45:53 [warn] 3992#3992: *855 using uninitialized "year" variable while logging request, client: 185.242.226.153, server: , request: " �  ��ʠ�8m�N��%���Oݳ2��>P�>]Wo�\�  �/�+����	��"
+2025/07/06 08:45:53 [warn] 3992#3992: *855 using uninitialized "month" variable while logging request, client: 185.242.226.153, server: , request: " �  ��ʠ�8m�N��%���Oݳ2��>P�>]Wo�\�  �/�+����	��"
+2025/07/06 08:45:53 [warn] 3992#3992: *855 using uninitialized "day" variable while logging request, client: 185.242.226.153, server: , request: " �  ��ʠ�8m�N��%���Oݳ2��>P�>]Wo�\�  �/�+����	��"
+2025/07/06 08:45:53 [warn] 3992#3992: *855 using uninitialized "hour" variable while logging request, client: 185.242.226.153, server: , request: " �  ��ʠ�8m�N��%���Oݳ2��>P�>]Wo�\�  �/�+����	��"
+2025/07/06 09:05:43 [error] 3992#3992: *856 connect() failed (111: Connection refused) while connecting to upstream, client: 43.129.169.161, server: , request: "HEAD /Core/Skin/Login.aspx HTTP/1.1", upstream: "http://127.0.0.1:8000/Core/Skin/Login.aspx", host: "13.49.128.32:80"
+2025/07/06 09:14:32 [error] 3992#3992: *858 connect() failed (111: Connection refused) while connecting to upstream, client: 5.79.105.22, server: , request: "GET /cgi-bin/luci/;stok=/locale HTTP/1.1", upstream: "http://127.0.0.1:8000/cgi-bin/luci/;stok=/locale", host: "13.49.128.32:80"
+2025/07/06 09:25:26 [error] 3992#3992: *860 connect() failed (111: Connection refused) while connecting to upstream, client: 206.168.34.208, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+2025/07/06 09:25:29 [warn] 3992#3992: *862 using uninitialized "year" variable while logging request, client: 206.168.34.208, server: , request: "PRI * HTTP/2.0"
+2025/07/06 09:25:29 [warn] 3992#3992: *862 using uninitialized "month" variable while logging request, client: 206.168.34.208, server: , request: "PRI * HTTP/2.0"
+2025/07/06 09:25:29 [warn] 3992#3992: *862 using uninitialized "day" variable while logging request, client: 206.168.34.208, server: , request: "PRI * HTTP/2.0"
+2025/07/06 09:25:29 [warn] 3992#3992: *862 using uninitialized "hour" variable while logging request, client: 206.168.34.208, server: , request: "PRI * HTTP/2.0"
+2025/07/06 09:25:42 [error] 3992#3992: *863 connect() failed (111: Connection refused) while connecting to upstream, client: 206.168.34.208, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:8000/favicon.ico", host: "13.49.128.32"
+2025/07/06 09:25:45 [warn] 3992#3992: *865 using uninitialized "year" variable while logging request, client: 206.168.34.208, server: , request: "PRI * HTTP/2.0"
+2025/07/06 09:25:45 [warn] 3992#3992: *865 using uninitialized "month" variable while logging request, client: 206.168.34.208, server: , request: "PRI * HTTP/2.0"
+2025/07/06 09:25:45 [warn] 3992#3992: *865 using uninitialized "day" variable while logging request, client: 206.168.34.208, server: , request: "PRI * HTTP/2.0"
+2025/07/06 09:25:45 [warn] 3992#3992: *865 using uninitialized "hour" variable while logging request, client: 206.168.34.208, server: , request: "PRI * HTTP/2.0"
+2025/07/06 09:25:52 [error] 3992#3992: *867 connect() failed (111: Connection refused) while connecting to upstream, client: 206.168.34.208, server: , request: "GET /login HTTP/1.1", upstream: "http://127.0.0.1:8000/login", host: "13.49.128.32"
+2025/07/06 09:25:57 [warn] 3992#3992: *866 using uninitialized "year" variable while logging request, client: 206.168.34.208, server: , request: " �  �G0hBL��$�#<�ҍ�'�5`�%"
+2025/07/06 09:25:57 [warn] 3992#3992: *866 using uninitialized "month" variable while logging request, client: 206.168.34.208, server: , request: " �  �G0hBL��$�#<�ҍ�'�5`�%"
+2025/07/06 09:25:57 [warn] 3992#3992: *866 using uninitialized "day" variable while logging request, client: 206.168.34.208, server: , request: " �  �G0hBL��$�#<�ҍ�'�5`�%"
+2025/07/06 09:25:57 [warn] 3992#3992: *866 using uninitialized "hour" variable while logging request, client: 206.168.34.208, server: , request: " �  �G0hBL��$�#<�ҍ�'�5`�%"
+2025/07/06 10:08:38 [error] 3992#3992: *870 connect() failed (111: Connection refused) while connecting to upstream, client: 172.102.223.44, server: , request: "GET /.env HTTP/1.1", upstream: "http://127.0.0.1:8000/.env", host: "13.49.128.32"
+2025/07/06 10:08:38 [error] 3991#3991: *872 connect() failed (111: Connection refused) while connecting to upstream, client: 172.102.223.44, server: , request: "POST / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "13.49.128.32"
+
+

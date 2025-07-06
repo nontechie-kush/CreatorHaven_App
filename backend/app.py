@@ -1,80 +1,62 @@
-# backend/app.py
+import sqlite3
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy 
-import sqlite3 # Keep sqlite3 import for local fallback
-import os
 
-app = Flask(__name__)
+application = Flask(__name__)
+CORS(application)
 
-# --- DATABASE CONFIGURATION FOR AWS RDS (POSTGRESQL) / LOCAL SQLITE ---
-# DATABASE_URL will be set by AWS Lambda environment variables in production
-# For local development, it will use SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///creatorhaven_forms.db')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+print("Writing to DB file:", os.path.abspath("instance/creatorhaven_forms.db"))
 
-db = SQLAlchemy(app) 
+def init_db():
+    conn = sqlite3.connect('instance/creatorhaven_forms.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS form_submissions (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    handle TEXT,
+                    email TEXT,
+                    phone TEXT,
+                    card_name TEXT,
+                    location TEXT,
+                    utm_source TEXT,
+                    utm_medium TEXT,
+                    utm_campaign TEXT,
+                    referrer TEXT,
+                    user_agent TEXT,
+                    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+                )''')
+    conn.commit()
+    conn.close()
+    print("Database initialized.")
 
-# --- Define the Database Model ---
-class FormSubmission(db.Model):
-    __tablename__ = 'form_submissions' 
-    id = db.Column(db.Integer, primary_key=True)
-    platform_handle = db.Column(db.Text, nullable=False)  # Mandatory handle (e.g., @user on Instagram)
-    email = db.Column(db.Text, unique=True, nullable=True) # Optional email, but unique if provided
-    phone_number = db.Column(db.Text, nullable=True)      # Optional phone number
-    card_name = db.Column(db.Text, nullable=True)         # Name of the clicked card (if from card click)
-    form_location = db.Column(db.Text, nullable=False)    # 'modal' or 'bottom'
-    submitted_at = db.Column(db.Text, default=db.func.current_timestamp()) 
-
-    def __repr__(self):
-        return f'<FormSubmission {self.platform_handle}>'
-
-# Allow CORS from your frontend's specific domain (will be set by AWS Lambda env vars in production)
-CORS(app, resources={r"/api/*": {"origins": os.environ.get('FRONTEND_URL', '*')}}) 
-
-# API endpoint for form submission 
-@app.route('/api/submit-form', methods=['POST'])
+@application.route('/api/submit-form', methods=['POST'])
 def submit_form():
-    if not request.is_json:
-        return jsonify({'success': False, 'message': 'Request must be JSON'}), 400
-
     data = request.get_json()
-    platform_handle = data.get('handle') 
+    handle = data.get('handle')
     email = data.get('email')
-    phone_number = data.get('phone') 
-    card_name = data.get('card_name')     
-    form_location = data.get('form_location') 
+    phone = data.get('phone')
+    card_name = data.get('card_name')
+    location = data.get('location')
+    utm_source = data.get('utm_source')
+    utm_medium = data.get('utm_medium')
+    utm_campaign = data.get('utm_campaign')
+    referrer = data.get('referrer')
+    user_agent = data.get('user_agent')
 
-    if not platform_handle or not form_location:
-        return jsonify({'success': False, 'message': 'Platform Handle and Form Location are required.'}), 400
+    conn = sqlite3.connect('instance/creatorhaven_forms.db')
+    c = conn.cursor()
+    c.execute('''INSERT INTO form_submissions (
+                    handle, email, phone, card_name, location,
+                    utm_source, utm_medium, utm_campaign, referrer, user_agent
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+              (handle, email, phone, card_name, location,
+               utm_source, utm_medium, utm_campaign, referrer, user_agent))
+    conn.commit()
+    conn.close()
 
-    try:
-        new_submission = FormSubmission(
-            platform_handle=platform_handle,
-            email=email if email else None, 
-            phone_number=phone_number if phone_number else None,
-            card_name=card_name,
-            form_location=form_location
-        )
-        db.session.add(new_submission) 
-        db.session.commit() 
+    print(f"Form data saved: Handle={handle}, Email={email}, Phone={phone}, Card={card_name}, Loc={location}")
+    return jsonify({'message': 'Form submitted successfully'}), 200
 
-        print(f"Form data saved: Handle={platform_handle}, Email={email}, Phone={phone_number}, Card={card_name}, Loc={form_location}")
-        return jsonify({'success': True, 'message': 'Form data submitted successfully!'}), 200
-    except Exception as e:
-        db.session.rollback() 
-        print(f"Error saving form data: {e}")
-        if 'UNIQUE constraint failed' in str(e) or 'duplicate key value violates unique constraint' in str(e):
-             return jsonify({'success': False, 'message': 'This email or handle might already be submitted.'}), 409 
-        return jsonify({'success': False, 'message': f'Internal server error: {e}'}), 500
-
-@app.route('/api/status', methods=['GET'])
-def status():
-    return jsonify({'status': 'Backend is running!'}), 200
-
-if __name__ == '__main__':
-    # init_db_local() # This will be called via a separate script for deployment
-    # For local testing, you'd run 'python app.py' once to create DB.
-    print("Run 'python app.py' locally once to initialize the SQLite DB for dev.")
-    print("In production, the DB tables will be created via init_db_script.py during deployment.")
-    app.run(debug=True, port=5000)
+if __name__ == "__main__":
+    #init_db()
+    application.run(debug=True)
