@@ -1,0 +1,107 @@
+Retrieving logs...
+============= i-0fe5f1b3a9e286dd9 ==============
+----------------------------------------
+/var/log/eb-engine.log
+----------------------------------------
+2025/07/06 14:14:14.429749 [INFO] Executing cleanup logic
+2025/07/06 14:14:14.429760 [INFO] Platform Engine finished execution on command: env-launch
+
+2025/07/06 14:16:47.862931 [INFO] Starting...
+2025/07/06 14:16:47.862976 [INFO] Starting EBPlatform-PlatformEngine
+2025/07/06 14:16:47.863009 [INFO] reading event message file
+2025/07/06 14:16:47.863301 [INFO] Engine received EB command cfn-hup-exec
+
+2025/07/06 14:16:47.919168 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d -r AWSEBAutoScalingGroup --region ap-south-1
+2025/07/06 14:16:48.213552 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d -r AWSEBBeanstalkMetadata --region ap-south-1
+2025/07/06 14:16:48.496248 [INFO] checking whether command app-deploy is applicable to this instance...
+2025/07/06 14:16:48.496260 [INFO] this command is applicable to the instance, thus instance should execute command
+2025/07/06 14:16:48.496262 [INFO] Engine command: (app-deploy)
+
+2025/07/06 14:16:48.496266 [INFO] Downloading EB Application...
+2025/07/06 14:16:48.496269 [INFO] Region: ap-south-1
+2025/07/06 14:16:48.496271 [INFO] envID: e-7dahx22ucg
+2025/07/06 14:16:48.496277 [INFO] envBucket: elasticbeanstalk-ap-south-1-848175179632
+2025/07/06 14:16:48.496279 [INFO] accountID: 848175179632
+2025/07/06 14:16:48.496282 [INFO] Using manifest file name from command request
+2025/07/06 14:16:48.496287 [INFO] Unable to get version manifest file.
+2025/07/06 14:16:48.496289 [INFO] Downloading latest manifest available.
+2025/07/06 14:16:48.496291 [INFO] Download latest app version manifest
+2025/07/06 14:16:48.496421 [INFO] resources/environments/e-7dahx22ucg/_runtime/versions/manifest
+2025/07/06 14:16:48.529554 [INFO] latestManifest key *: resources/environments/e-7dahx22ucg/_runtime/versions/manifest_1751811203118
+
+2025/07/06 14:16:48.529796 [INFO] Downloading: bucket: elasticbeanstalk-ap-south-1-848175179632, object: resources/environments/e-7dahx22ucg/_runtime/versions/manifest_1751811203118, expected bucket owner: 848175179632
+2025/07/06 14:16:48.563155 [INFO] Download successful153bytes downloaded
+2025/07/06 14:16:48.563254 [INFO] Trying to read and parse version manifest...
+2025/07/06 14:16:48.563335 [INFO] Downloading: bucket: elasticbeanstalk-ap-south-1-848175179632, object: resources/environments/e-7dahx22ucg/_runtime/_versions/CreatorHaven-Backend/app-250706_194303652239, expected bucket owner: 848175179632
+2025/07/06 14:16:48.812405 [INFO] Download successful16233269bytes downloaded
+2025/07/06 14:16:48.812704 [INFO] Executing instruction: ElectLeader
+2025/07/06 14:16:48.812711 [INFO] Running leader election for instance i-0fe5f1b3a9e286dd9...
+2025/07/06 14:16:48.812714 [INFO] Calling the cfn-elect-cmd-leader to elect the command leader.
+2025/07/06 14:16:48.812729 [INFO] Running command: /opt/aws/bin/cfn-elect-cmd-leader --stack arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d --command-name ElasticBeanstalkCommand-AWSEBAutoScalingGroup --invocation-id 42727c6d-863e-49a6-bd1f-a59bd425192e --listener-id i-0fe5f1b3a9e286dd9 --region ap-south-1
+2025/07/06 14:16:49.102743 [INFO] Instance is Leader.
+2025/07/06 14:16:49.102800 [INFO] Executing instruction: stopSqsd
+2025/07/06 14:16:49.102805 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2025/07/06 14:16:49.102809 [INFO] Executing instruction: PreBuildEbExtension
+2025/07/06 14:16:49.102813 [INFO] Starting executing the config set Infra-EmbeddedPreBuild.
+2025/07/06 14:16:49.102825 [INFO] Running command: /opt/aws/bin/cfn-init -s arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d -r AWSEBAutoScalingGroup --region ap-south-1 --configsets Infra-EmbeddedPreBuild
+2025/07/06 14:16:49.417412 [INFO] Error occurred during build: File specified without source or content
+
+2025/07/06 14:16:49.417437 [ERROR] An error occurred during execution of command [app-deploy] - [PreBuildEbExtension]. Stop running the command. Error: EbExtension build failed. Please refer to /var/log/cfn-init.log for more details. 
+
+2025/07/06 14:16:49.417440 [INFO] Executing cleanup logic
+2025/07/06 14:16:49.417515 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[{"msg":"Instance deployment failed. For details, see 'eb-engine.log'.","timestamp":1751811409417,"severity":"ERROR"}]}]}
+
+2025/07/06 14:16:49.417663 [INFO] Platform Engine finished execution on command: app-deploy
+
+2025/07/06 14:20:04.162986 [INFO] Starting...
+2025/07/06 14:20:04.163038 [INFO] Starting EBPlatform-PlatformEngine
+2025/07/06 14:20:04.163084 [INFO] reading event message file
+2025/07/06 14:20:04.163432 [INFO] Engine received EB command cfn-hup-exec
+
+2025/07/06 14:20:04.229880 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d -r AWSEBAutoScalingGroup --region ap-south-1
+2025/07/06 14:20:04.538685 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d -r AWSEBBeanstalkMetadata --region ap-south-1
+2025/07/06 14:20:04.846887 [INFO] checking whether command bundle-log is applicable to this instance...
+2025/07/06 14:20:04.846900 [INFO] this command is applicable to the instance, thus instance should execute command
+2025/07/06 14:20:04.846903 [INFO] Engine command: (bundle-log)
+
+2025/07/06 14:20:04.846944 [INFO] Executing instruction: GetBundleLogs
+2025/07/06 14:20:04.846947 [INFO] Bundle Logs...
+2025/07/06 14:20:04.931876 [INFO] Executing cleanup logic
+2025/07/06 14:20:04.931950 [INFO] CommandService Response: {"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"Engine execution has succeeded.","returncode":0,"events":[{"msg":"Instance deployment completed successfully.","timestamp":1751811604931,"severity":"INFO"}]}]}
+
+2025/07/06 14:20:04.931969 [INFO] Platform Engine finished execution on command: bundle-log
+
+2025/07/06 14:45:46.869005 [INFO] Starting...
+2025/07/06 14:45:46.869053 [INFO] Starting EBPlatform-PlatformEngine
+2025/07/06 14:45:46.869087 [INFO] reading event message file
+2025/07/06 14:45:46.869381 [INFO] Engine received EB command cfn-hup-exec
+
+2025/07/06 14:45:46.932016 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d -r AWSEBAutoScalingGroup --region ap-south-1
+2025/07/06 14:45:47.231096 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d -r AWSEBBeanstalkMetadata --region ap-south-1
+2025/07/06 14:45:47.518792 [INFO] checking whether command bundle-log is applicable to this instance...
+2025/07/06 14:45:47.518804 [INFO] this command is applicable to the instance, thus instance should execute command
+2025/07/06 14:45:47.518806 [INFO] Engine command: (bundle-log)
+
+2025/07/06 14:45:47.518847 [INFO] Executing instruction: GetBundleLogs
+2025/07/06 14:45:47.518849 [INFO] Bundle Logs...
+2025/07/06 14:45:47.593539 [INFO] Executing cleanup logic
+2025/07/06 14:45:47.593615 [INFO] CommandService Response: {"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"Engine execution has succeeded.","returncode":0,"events":[{"msg":"Instance deployment completed successfully.","timestamp":1751813147593,"severity":"INFO"}]}]}
+
+2025/07/06 14:45:47.593642 [INFO] Platform Engine finished execution on command: bundle-log
+
+2025/07/06 14:47:01.373513 [INFO] Starting...
+2025/07/06 14:47:01.373573 [INFO] Starting EBPlatform-PlatformEngine
+2025/07/06 14:47:01.373607 [INFO] reading event message file
+2025/07/06 14:47:01.373952 [INFO] Engine received EB command cfn-hup-exec
+
+2025/07/06 14:47:01.444257 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d -r AWSEBAutoScalingGroup --region ap-south-1
+2025/07/06 14:47:01.879917 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:ap-south-1:848175179632:stack/awseb-e-7dahx22ucg-stack/60898710-5a73-11f0-a25e-063f43b87e2d -r AWSEBBeanstalkMetadata --region ap-south-1
+2025/07/06 14:47:02.349618 [INFO] checking whether command tail-log is applicable to this instance...
+2025/07/06 14:47:02.349640 [INFO] this command is applicable to the instance, thus instance should execute command
+2025/07/06 14:47:02.349647 [INFO] Engine command: (tail-log)
+
+2025/07/06 14:47:02.349699 [INFO] Executing instruction: GetTailLogs
+2025/07/06 14:47:02.349702 [INFO] Tail Logs...
+2025/07/06 14:47:02.350023 [INFO] Running command: tail -n 100 /var/log/eb-engine.log
+
+

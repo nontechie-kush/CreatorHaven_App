@@ -57,6 +57,10 @@ def submit_form():
     print(f"Form data saved: Handle={handle}, Email={email}, Phone={phone}, Card={card_name}, Loc={location}")
     return jsonify({'message': 'Form submitted successfully'}), 200
 
+@application.route('/')
+def health_check():
+    return "CreatorHaven backend is running!", 200
+
 if __name__ == "__main__":
     #init_db()
     application.run(debug=True)

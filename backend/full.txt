@@ -1,0 +1,4 @@
+Retrieving logs...
+Logs were saved to /Users/kushendrasuryavanshi/Developer/CreatorHaven_App/backend/.elasticbeanstalk/logs/250706_201833
+Logs were saved to /Users/kushendrasuryavanshi/Developer/CreatorHaven_App/backend/.elasticbeanstalk/logs/250706_201833
+Updated symlink at /Users/kushendrasuryavanshi/Developer/CreatorHaven_App/backend/.elasticbeanstalk/logs/latest
