@@ -97,7 +97,7 @@ const Component= () => {
      const data = await response.json();
 
      // --- Updated GA event logic for form submission ---
-     if (response.ok && data.success) {
+     if (response.ok) {
        setFormStatus('Thank you! Your request has been submitted successfully.');
        clearFormData();
        // --- GA Event: Successful Form Submission ---
